@@ -1,18 +1,9 @@
 
 import React, { useEffect, useState } from 'react'
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
-import axios from 'axios';
 
- function PokemanCard({data}) {
-    const [pokemanDeta, setPokemanDeta] = useState();
-    useEffect(() => {
-        (async function fetchDetails() {
-            const response = await axios.get(`api/api?url=${data.url}`);
-            const pokemanDetail = await response.json();
-            setPokemanDeta(pokemanDetail);
-        })();
-    },[data])
-    if (!pokemanDeta) {
+ function PokemanCardPrisma({data}) {
+    if (!data) {
         return null
     }
   return (
@@ -25,7 +16,7 @@ import axios from 'axios';
                 width="100%"
                 alt={data.name}
                 className="w-full object-cover "
-                src={`/sprites/${pokemanDeta.id}.svg`}
+                src={`/sprites/${data.id}.svg`}
                 // src={pokemanDeta && pokemanDeta.sprites.front_default}
               />
             </CardBody>
@@ -40,4 +31,4 @@ import axios from 'axios';
 
 
 
-export default PokemanCard;
+export default PokemanCardPrisma;

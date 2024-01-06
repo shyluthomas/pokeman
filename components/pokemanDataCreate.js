@@ -9,6 +9,13 @@ import axios from 'axios';
         (async function fetchDetails() {
             const response = await axios.get(`api/api?url=${data.url}`);
             const pokemanDetail = await response.json();
+            await axios.post('api/pokeman',
+               {
+                name: data.name,
+                stats: JSON.stringify(pokemanDetail.stats),
+                types: JSON.stringify(pokemanDetail.types)
+              }
+            )
             setPokemanDeta(pokemanDetail);
         })();
     },[data])
