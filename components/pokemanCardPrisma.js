@@ -16,7 +16,7 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
                 width="100%"
                 alt={data.name}
                 className="w-full object-cover "
-                src={`/sprites/${data.id}.svg`}
+                src={data.id > 152 ? '/images/1.jpg':`/sprites/${data.id}.svg`}
                 // src={pokemanDeta && pokemanDeta.sprites.front_default}
               />
             </CardBody>
