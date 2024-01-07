@@ -5,18 +5,44 @@ import {Divider} from "@nextui-org/react";
 import PokemanCardPrisma from "../components/pokemanCardPrisma";
 import Search from "../components/search";
 import NoData from "../components/noData";
+import Filter from "../components/filter";
+import Sort from "../components/sort";
+import { sortData } from "../helpers/utilities";
 export default function MyPockeman({pokemanData}) {
-
-  const [pokemanList, setPokemanList] = useState(pokemanData)
-
-  const filterPokeman = (e) => {
-    const searchText = e.target.value;
-    if(searchText.length > 0) {
-      const filterData = pokemanData.filter(({name}) =>  name.startsWith(searchText));
-      setPokemanList(filterData);
-    }
-
+const [search, setSearch] = useState()
+const [userFilter, setUserFilter] = useState()
+const [userSort, setUserSort] = useState()
+const filterPokeman = (e) => {
+  const searchText = e.target.value;
+  if(searchText.length > 0) {
+    setSearch(searchText);
+  } else {
+    setSearch('');
   }
+
+}
+
+const filterStats = (e) => {
+  const filterText = e.target.innerText;
+  setUserFilter(filterText)
+}
+
+const triggerSort = (e) => {
+  const sortText = e.target.innerText;
+  setUserSort(sortText);
+  } 
+let filterData = pokemanData;
+if(search){
+  filterData = pokemanData.filter(({name}) =>  name.startsWith(search));
+}
+if(userFilter) {
+  if(userFilter !== "clear") {
+    filterData = filterData.filter(({stats}) =>  stats.includes(userFilter));
+  } 
+}
+if(userSort) {
+    filterData = sortData(userSort,filterData);
+}
 
   return (
 
@@ -27,12 +53,14 @@ export default function MyPockeman({pokemanData}) {
         </div>
         <div className="flex">
           <Search data={pokemanData} searchTriger={filterPokeman}></Search>
+          <Filter triggerfilter={filterStats}></Filter>
+          <Sort triggerSort = {triggerSort}></Sort>
         </div>
      </div>
      <Divider className="my-4" />
-     {pokemanList.length === 0 && <NoData></NoData>}
+     {filterData.length === 0 && <NoData></NoData>}
       <div className="gap-6 grid grid-cols-2 sm:grid-cols-4">
-        {pokemanList.map((item, index) => (
+        {filterData.map((item, index) => (
           <PokemanCardPrisma data={item} key={index}></PokemanCardPrisma>
         ))}
       </div>

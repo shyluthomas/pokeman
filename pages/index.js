@@ -6,10 +6,7 @@ import PokemanCard from '../components/pokemanCard';
 import Search from "../components/filter";
 
 export default function Home({pokemanData}) {
-console.log('first', pokemanData)
-
   return (
-
     <div className="w-full">
       <div className="flex flex-column">
         <div>
@@ -19,9 +16,7 @@ console.log('first', pokemanData)
           <Search data={pokemanData}></Search>
         </div>
      </div>
-
      <Divider className="my-4" />
-   
       <div className="gap-6 grid grid-cols-2 sm:grid-cols-4">
         {pokemanData.map((item, index) => (
          <PokemanCard data={item} key={index}></PokemanCard>
