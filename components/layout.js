@@ -22,8 +22,8 @@ export default function Layout({children}) {
             </Link>
             </NavbarItem>
             <NavbarItem>
-            <Link color="foreground" href="#">
-                Blog
+            <Link color="foreground" href="/blog">
+                Pokeman Blog
             </Link>
             </NavbarItem>
         </NavbarContent>

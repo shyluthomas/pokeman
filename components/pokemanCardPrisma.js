@@ -16,7 +16,7 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
                 width="200px"
                 height="150px"
                 alt={data.name}
-                className="w-50 h-50 object-cover hover:animate-ping"
+                className="w-full h-full  hover:animate-ping"
                 src={data.id > 152 ? '/images/1.jpg':`/sprites/${data.id}.svg`}
                 // src={pokemanDeta && pokemanDeta.sprites.front_default}
               />
