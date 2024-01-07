@@ -9,13 +9,14 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
   return (
    <>
           <Card shadow="sm" key={data.name} isPressable onPress={() => console.log("item pressed")}>
-            <CardBody className="overflow-visible p-0">
+            <CardBody className="overflow-visible p-0 ">
               <Image
                 shadow="sm"
                 radius="lg"
-                width="100%"
+                width="200px"
+                height="150px"
                 alt={data.name}
-                className="w-full object-cover "
+                className="w-50 h-50 object-cover hover:animate-ping"
                 src={data.id > 152 ? '/images/1.jpg':`/sprites/${data.id}.svg`}
                 // src={pokemanDeta && pokemanDeta.sprites.front_default}
               />

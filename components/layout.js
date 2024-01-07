@@ -12,13 +12,13 @@ export default function Layout({children}) {
         </NavbarBrand>
         <NavbarContent  >
             <NavbarItem>
-            <Link color="foreground" href="#">
-                Features
+            <Link color="foreground" href="/mypokeman">
+                My Pokeman
             </Link>
             </NavbarItem>
             <NavbarItem isActive>
-            <Link href="#" aria-current="page">
-                Customers
+            <Link href="/" aria-current="page">
+                cloud Pokeman
             </Link>
             </NavbarItem>
             <NavbarItem>

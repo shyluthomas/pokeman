@@ -10,7 +10,6 @@ export default async function handler(req, res) {
           break
         case 'POST':
             const {name,stats,types} = req.body;
-            console.log('first', req.body.name)
             const resp = await prisma.pokeman.create({
                 data : {
                     name,

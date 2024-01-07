@@ -1,6 +1,5 @@
 
 export  function sortData(sortText, filterData) {
-    console.log('data', filterData)
     let latestfilterData =[];
     if(sortText === "ASC") {
         latestfilterData = filterData.sort(function(a,b){
@@ -15,7 +14,6 @@ export  function sortData(sortText, filterData) {
           return a.name > b.name
       });
     }
-    console.log('filter' , latestfilterData)
     return latestfilterData;
 
 }

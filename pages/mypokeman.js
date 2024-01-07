@@ -46,12 +46,13 @@ if(userSort) {
 
   return (
 
-    <div className="w-full">
+    <div className="w-full stroke-black">
       <div className="flex flex-column justify-start">
-        <div className="w-full">
-            <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" className="w-6 h-6 m-2" /><h3 className="font-medium text-large"> Pokeman list</h3>
+        <div className="flex w-full flex-column items-center content-center">
+            <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" className="w-6 h-6 m-2" />
+            <h3 className="font-medium text-large"> Pokeman list</h3>
         </div>
-        <div className="flex">
+        <div className="flex w-full ">
           <Search data={pokemanData} searchTriger={filterPokeman}></Search>
           <Filter triggerfilter={filterStats}></Filter>
           <Sort triggerSort = {triggerSort}></Sort>
@@ -59,7 +60,7 @@ if(userSort) {
      </div>
      <Divider className="my-4" />
      {filterData.length === 0 && <NoData></NoData>}
-      <div className="gap-6 grid grid-cols-2 sm:grid-cols-4">
+      <div className="gap-6 grid grid-cols-2 sm:grid-cols-6">
         {filterData.map((item, index) => (
           <PokemanCardPrisma data={item} key={index}></PokemanCardPrisma>
         ))}

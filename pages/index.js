@@ -9,12 +9,11 @@ export default function Home({pokemanData}) {
   return (
     <div className="w-full">
       <div className="flex flex-column">
-        <div>
-             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" className="w-6 h-6 m-2" /><h3 className="font-medium text-large"> Pokeman list</h3>
+        <div className="flex w-full flex-column items-center content-center">
+            <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" className="w-6 h-6 m-2" />
+            <h3 className="font-medium text-large"> Pokeman list</h3>
         </div>
-        <div>
-          <Search data={pokemanData}></Search>
-        </div>
+        
      </div>
      <Divider className="my-4" />
       <div className="gap-6 grid grid-cols-2 sm:grid-cols-4">

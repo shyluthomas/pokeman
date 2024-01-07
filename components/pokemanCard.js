@@ -8,10 +8,10 @@ import axios from 'axios';
     useEffect(() => {
         (async function fetchDetails() {
             const response = await axios.get(`api/api?url=${data.url}`);
-            const pokemanDetail = await response.json();
-            setPokemanDeta(pokemanDetail);
+            setPokemanDeta(response.data);
         })();
     },[data])
+
     if (!pokemanDeta) {
         return null
     }
@@ -26,7 +26,6 @@ import axios from 'axios';
                 alt={data.name}
                 className="w-full object-cover "
                 src={`/sprites/${pokemanDeta.id}.svg`}
-                // src={pokemanDeta && pokemanDeta.sprites.front_default}
               />
             </CardBody>
             <CardFooter className="text-small justify-between">
